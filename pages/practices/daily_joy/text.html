@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Enjoy life app</title>
+        <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bs-stepper.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/styles.css">
+    </head>
+<body>
+    <nav class="navbar navbar-custom primary-bg">
+        <a href="./description.html" class="back-button">
+            <i class="icon-arrow-left font-large-1 float-right"></i>
+        </a>
+        <a href="../../settings.html" class="settings-button">
+            <i class="icon-settings font-large-1 float-right"></i>
+        </a>
+    </nav>
+    <div class="grey-bg container-fluid">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12 mt-1">
+                <h4>Daily joy practice</h4>
+                <div id="stepper" class="bs-stepper">
+                  <div class="bs-stepper-header">
+                    <div class="step" data-target="#test-lv-1">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">First step</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-lv-2">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">Second step</span>
+                      </button>
+                    </div>
+                    <div class="step" data-target="#test-lv-3">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">Third step</span>
+                      </button>
+                    </div>
+                    <div class="step" data-target="#test-lv-4">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">4</span>
+                        <span class="bs-stepper-label">Fourth step</span>
+                      </button>
+                    </div>
+                    <div class="step" data-target="#test-lv-5">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">5</span>
+                        <span class="bs-stepper-label">Fifth step</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <div id="test-lv-1" class="content">
+                      <span class="bs-stepper-circle">1</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Think about the day.</span>
+                        Before going to bed or lying in bed, take a few minutes to think about your day. Remember significant events, conversations, emotions, and thoughts, but it's important not to pay too much attention to what you did or didn't do. You just need to notice the main features of the day and check if it corresponds to your morning intentions.
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-2" class="content">
+                      <span class="bs-stepper-circle">2</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Pay attention to your emotions and accept your experience.</span>
+                        Think about the emotions you felt during the day. If you have negative thoughts or feelings, just stay with them. Do not try to repel the negative and cling to the positive. Just admit what happened. If you are disappointed by something in your behavior, put your hand on your heart and say, "I accept myself as I am, an imperfect human being, like everyone else." Pay attention to what your intention was not realized, because it allows you to grow and learn. If something painful happens during the day, you can safely say it with the words, "It hurt. I'm not alone. We all suffer sometimes."
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-3" class="content">
+                      <span class="bs-stepper-circle">3</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Feel grateful.</span> The most important thing about your day is to be grateful for what it has brought, even if some events have been difficult and have helped you learn and develop. If you are writing a list of things you are grateful for, you can write them down now.
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-4" class="content">
+                      <span class="bs-stepper-circle">4</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Rejoice in the day.</span>
+                        Choose one of today's actions that evokes pleasant emotions in you: for example, you remained restrained during the conflict or helped someone. If nothing comes to mind, you can be happy that you follow this practice.
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-5" class="content">
+                      <span class="bs-stepper-circle">5</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Make plans for tomorrow.</span>
+                        You can complete this practice by focusing on the next day and deciding how you want to take on potential challenges. Believe in your ability to cope with everything that may happen tomorrow, and put off your worries until the morning.
+                      </p>
+                      <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
+                      <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
+                      <button class="btn btn-outline-primary ads-button">Watch ad (optional)</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="../../../assets/js/jquery.js"></script>
+    <script src="../../../assets/js/bs-stepper.min.js"></script>
+    <script>
+        var stepper = new Stepper(document.querySelector('#stepper'), {
+          animation: true
+        });
+    </script>
+</body>
+</html>

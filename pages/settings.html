@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Enjoy life app</title>
+        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap-timepicker.min.css">
+    </head>
+<body>
+    <nav class="navbar navbar-custom primary-bg">
+        <a href="../index.html" class="back-button">
+            <i class="icon-arrow-left font-large-1 float-right"></i>
+        </a>
+    </nav>
+    <div class="grey-bg container-fluid">
+    <section>
+        <div class="row">
+            <div class="col-xl-3 col-sm-3"></div>
+            <div class="col-xl-6 col-sm-6 col-12 align-self-center">
+                <h3 class="mt-1">Settings</h3>
+                <div class="row mt-2 mb-2">
+                    <div class="col-6">
+                        Background sound
+                    </div>
+                    <div class="col-6">
+                        <input id="backgroundSoundCheckBox" class="checkbox" type="checkbox" aria-label="Check background sound">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6">
+                        Morning practice time
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group bootstrap-timepicker timepicker">
+                            <input id="morningTimepicker" type="text" class="form-control input-small">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6">
+                        Evening practice time
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group bootstrap-timepicker timepicker">
+                            <input id="eveningTimepicker" type="text" class="form-control input-small">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="mt-1 mb-1">Project contacts</h3>
+                <div class="row mb-2">
+                    <div class="col-6">
+                        Contact developer
+                        <p class="text-muted text-justify mb-0">
+                            If you find a bug or have ideas on how to improve the product, please contact us
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://twitter.com/nick_lipnyagov" target="_blank">
+                            <i class="icon-social-twitter font-large-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-6">
+                        Donate
+                        <p class="text-muted text-justify">
+                            Thanks to your donations we continue supporting this app and help other people to feel more joy
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-outline-primary">Patreon</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-3"></div>
+        </div>
+    </section>
+    </div>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript">
+        const backgroundSoundMode = window.localStorage.backgroundSoundMode;
+        if (backgroundSoundMode === 'true') {
+          $('#backgroundSoundCheckBox').prop('checked', true);
+        }
+
+        const morningTime = window.localStorage.morningTime;
+        if (morningTime) {
+            $('#morningTimepicker').timepicker('setTime', morningTime);
+        }
+
+        const eveningTime = window.localStorage.eveningTime;
+        if (eveningTime) {
+            $('#eveningTimepicker').timepicker('setTime', eveningTime);
+        }
+
+        $('#morningTimepicker').timepicker({
+          showInputs: false
+        });
+        $('#eveningTimepicker').timepicker({
+          showInputs: false
+        });
+        $('#morningTimepicker').change(function(){
+            window.localStorage.morningTime = $('#morningTimepicker').val();
+        });
+        $('#eveningTimepicker').change(function(){
+            window.localStorage.eveningTime = $('#eveningTimepicker').val();
+        });
+        $('#backgroundSoundCheckBox').change(function(){
+            window.localStorage.backgroundSoundMode = $('#backgroundSoundCheckBox').prop('checked');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Enjoy life app</title>
+        <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bs-stepper.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/styles.css">
+    </head>
+<body>
+    <nav class="navbar navbar-custom primary-bg">
+        <a href="./description.html" class="back-button">
+            <i class="icon-arrow-left font-large-1 float-right"></i>
+        </a>
+        <a href="../../settings.html" class="settings-button">
+            <i class="icon-settings font-large-1 float-right"></i>
+        </a>
+    </nav>
+    <div class="grey-bg container-fluid">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12 mt-1">
+                <h4>Perspective practice</h4>
+                <div id="stepper" class="bs-stepper">
+                  <div class="bs-stepper-header">
+                    <div class="step" data-target="#test-lv-1">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">First step</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-lv-2">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">Second step</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-lv-3">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">Third step</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-lv-4">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">4</span>
+                        <span class="bs-stepper-label">Fourth step</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <div id="test-lv-1" class="content">
+                      <span class="bs-stepper-circle">1</span>
+                      <p class="practice-text-version-step-description"><span class="font-weight-bold">Think about the problem or situation you are facing.</span></p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-2" class="content">
+                      <span class="bs-stepper-circle">2</span>
+                      <p class="practice-text-version-step-description"><span class="font-weight-bold">Describe your problem as if it were happening to someone else.</span> Use your name, not the pronouns "I", "me" or "mine".</p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-3" class="content">
+                      <span class="bs-stepper-circle">3</span>
+                      <p class="practice-text-version-step-description"><span class="font-weight-bold">Imagine what this problem would look like in a week, a year, or even ten years.</span> Will this question continue to affect you? Will you even remember it? What will this experience teach you?</p>
+                      <!-- <button class="btn btn-outline-primary" onclick="stepper.previous()">Previous</button> -->
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-4" class="content">
+                      <span class="bs-stepper-circle">4</span>
+                      <p class="practice-text-version-step-description"><span class="font-weight-bold">Look at your life from a universal standpoint.</span> Look at your fears and frustrations from a different angle. See that everyone involved has the same value and just as much deserves love and respect. Then ask yourself what will benefit everyone.</p>
+                      <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
+                      <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
+                      <button class="btn btn-outline-primary ads-button">Watch ad (optional)</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="../../../assets/js/jquery.js"></script>
+    <script src="../../../assets/js/bs-stepper.min.js"></script>
+    <script>
+        var stepper = new Stepper(document.querySelector('#stepper'), {
+          animation: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Enjoy life app</title>
+        <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bs-stepper.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/styles.css">
+    </head>
+<body>
+    <nav class="navbar navbar-custom primary-bg">
+        <a href="./description.html" class="back-button">
+            <i class="icon-arrow-left font-large-1 float-right"></i>
+        </a>
+        <a href="../../settings.html" class="settings-button">
+            <i class="icon-settings font-large-1 float-right"></i>
+        </a>
+    </nav>
+    <div class="grey-bg container-fluid">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12 mt-1">
+                <h4>Forgiveness practice</h4>
+                <div id="stepper" class="bs-stepper">
+                  <div class="bs-stepper-header">
+                    <div class="step" data-target="#test-lv-1">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">First step</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-lv-2">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">Second step</span>
+                      </button>
+                    </div>
+                    <div class="step" data-target="#test-lv-3">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">Third step</span>
+                      </button>
+                    </div>
+                    <div class="step" data-target="#test-lv-4">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">4</span>
+                        <span class="bs-stepper-label">Fourth step</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <div id="test-lv-1" class="content">
+                      <span class="bs-stepper-circle">1</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Tell your story.</span> 
+                        Any forgiveness must begin with acknowledging the truth. You can write in a diary or tell a trusted friend what happened. The story allows you to integrate memories into your mind and weaken emotional reactivity. It is useful to imagine that this event takes place in the film. Close your eyes. Go back to the time and place where the emotional experience took place and recall this scene. Move away from the situation so that this event is at a distance and you can see in it your distant "I". Watch this event over and over again as if it were happening to you in the distance.
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-2" class="content">
+                      <span class="bs-stepper-circle">2</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Name the insult.</span>
+                        The facts are the facts, but this experience has caused you a strong emotional reaction and pain, which must be called. As you watch this situation happen to your distant self, try to understand his feelings. Why did he have these feelings? What were the reasons and grounds for them? If the offense is still fresh, ask yourself, "Will this situation affect me in ten years?" If the resentment is old, ask yourself if you want to continue to bear this pain, or if you prefer to get rid of it and suffering. 
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-3" class="content">
+                      <span class="bs-stepper-circle">3</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Forgive the person who offended you.</span>
+                        The ability to forgive is based on an awareness of our common humanity and on the recognition that we will inevitably feel pain and inflict it on others because we are human. Can you accept the humanity of your abuser and the fact that the most likely cause of such actions was his own suffering? By accepting your common humanity, you can give up your imaginary right to revenge and move on to healing rather than retribution. We also understand that there can be many insults, especially in relationships between loved ones, so we need to forgive and apologize at the same time, accepting our role in human drama. 
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-4" class="content">
+                      <span class="bs-stepper-circle">4</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Renew or release the relationship.</span>
+                        Once you have forgiven someone, you need to make an important decision: do you want to rebuild the relationship or let it go? If the injury is deep, you will not be able to return to the previous relationship, but you have the opportunity to restore it. By rebuilding a relationship, we can heal a family or a community. When we give up a relationship, we can move on, especially if we sincerely wish our abuser all the best and realize that he, like us, just wants to avoid suffering and live happily. 
+                      </p>
+                      <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
+                      <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
+                      <button class="btn btn-outline-primary ads-button">Watch ad (optional)</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="../../../assets/js/jquery.js"></script>
+    <script src="../../../assets/js/bs-stepper.min.js"></script>
+    <script>
+        var stepper = new Stepper(document.querySelector('#stepper'), {
+          animation: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Enjoy life app</title>
+        <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bs-stepper.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../assets/styles/styles.css">
+    </head>
+<body>
+    <nav class="navbar navbar-custom primary-bg">
+        <a href="./description.html" class="back-button">
+            <i class="icon-arrow-left font-large-1 float-right"></i>
+        </a>
+        <a href="../../settings.html" class="settings-button">
+            <i class="icon-settings font-large-1 float-right"></i>
+        </a>
+    </nav>
+    <div class="grey-bg container-fluid">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12 mt-1">
+                <h4>Modesty practice</h4>
+                <div id="stepper" class="bs-stepper">
+                  <div class="bs-stepper-header">
+                    <div class="step" data-target="#test-lv-1">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">1</span>
+                        <span class="bs-stepper-label">First step</span>
+                      </button>
+                    </div>
+                    <div class="line"></div>
+                    <div class="step" data-target="#test-lv-2">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">2</span>
+                        <span class="bs-stepper-label">Second step</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bs-stepper-content">
+                    <div id="test-lv-1" class="content">
+                      <span class="bs-stepper-circle">1</span>
+                      <p class="practice-text-version-step-description">
+                        <span class="font-weight-bold">Think of the people you owe your life to.</span> Think of your parents who gave you life, the teachers who taught you, the people who grow food and sew clothes for you, and all those without whom you would not be able to live the way you live every day. Next, think of the people who invented and created all the things we take for granted: the house, the harvest, the medicine that saves from disease. Think of all the ancestors who had to live, survive so that you could be born, and overcome the enormous difficulties so that you could live that life now. Now think about your family and friends who fill your life with meaning and purpose.
+                      </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-2" class="content">
+                      <span class="bs-stepper-circle">2</span>
+                      <p class="practice-text-version-step-description"><span class="font-weight-bold">Allow your heart to open and feel love and gratitude for all these people.</span> Feel extraordinary joy and gratitude, remembering all your blessings, realizing our dependence on others and how weak we are when we are separated, and how strong we are when together.</p>
+                      <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
+                      <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
+                      <button class="btn btn-outline-primary ads-button">Watch ad (optional)</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="../../../assets/js/jquery.js"></script>
+    <script src="../../../assets/js/bs-stepper.min.js"></script>
+    <script>
+        var stepper = new Stepper(document.querySelector('#stepper'), {
+          animation: true
+        });
+    </script>
+</body>
+</html>
