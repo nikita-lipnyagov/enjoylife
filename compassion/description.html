@@ -6,21 +6,21 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Enjoy life app</title>
-        <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg" />
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap-extended.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/style.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/colors.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/google-fonts.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
     </head>
 <body>
     <nav class="navbar navbar-custom primary-bg">
-        <a href="../../../index.html" class="back-button">
+        <a href="../index.html" class="back-button">
             <i class="icon-arrow-left font-large-1 float-right"></i>
         </a>
-        <span>7 mins</span>
-        <a href="../../settings.html" class="settings-button">
+        <span>15 mins</span>
+        <a href="../settings.html" class="settings-button">
             <i class="icon-settings font-large-1 float-right"></i>
         </a>
     </nav>
@@ -29,13 +29,13 @@
         <div class="row">
             <div class="col-xl-2"></div>
             <div class="col-xl-4 col-sm-6 col-12 mt-2 text-center">
-                <img class="card-img-top description-practice-image" src="../../../assets/images/daily_joy.svg" alt="Daily joy practice">
+                <img class="card-img-top description-practice-image" src="../assets/images/compassion.svg" alt="Compassion practice">
             </div>
             <div class="col-xl-4 col-sm-6 col-12 align-self-center">
                 <div class="card-body">
-                    <h4 class="card-title">Daily joy practice</h4>
+                    <h4 class="card-title">Compassion practice</h4>
                     <p class="card-text text-justify practice-description">
-                        The way we end the day and go to bed plays an important role in our practice. There are different aspects to this practice, but they all include reflections on what happened during the day. In this way, we notice whether we have accomplished our purpose, feel grateful for our blessings, and adjust to the next day in life.    
+                        By devoting at least ten minutes to the practice of compassion, you can experience joy for twenty-four hours. Expanding our circle of compassion is important both for our own well-being and for the well-being of the whole world.
                     </p>
                     <div class="row text-center">
                         <div class="col-6">
@@ -59,7 +59,7 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="audioModalLabel">Practice time: 7 mins</h5>
+            <h5 class="modal-title" id="audioModalLabel">Practice time: <span id="minutesToPracticeEnd">15</span> mins</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -68,14 +68,14 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="align-items-center">
                         <div class="card-body pt-0 text-center">
-                        <img class="card-img-top pb-1 audio-practice-image" src="../../../assets/images/daily_joy.svg" alt="Card image cap">
+                        <img class="card-img-top pb-1 audio-practice-image" src="../assets/images/compassion.svg" alt="Card image cap">
                         <h4>Listen carefully and follow steps</h4>
                         <audio controls loop id="backgroundAudioPanel">
-                            <source src="../../../assets/audios/backgroundSound.mp3" type="audio/mpeg">
+                            <source src="../assets/audios/backgroundSound.mp3" type="audio/mpeg">
                             Your browser does not support the audio tag.
                         </audio>
                         <audio controls id="practiceAudioPanel">
-                            <source src="../../../assets/audios/daily_joy.mp3" type="audio/mpeg">
+                            <source src="../assets/audios/compassion.mp3" type="audio/mpeg">
                             Your browser does not support the audio tag.
                         </audio>
                         <button id="replayButton" onClick="document.getElementById('practiceAudioPanel').currentTime -= 15" class="btn btn-outline-primary" >
@@ -96,9 +96,9 @@
         </div>
         </div>
     </div>
-    <script src="../../../assets/js/jquery.js"></script>
-    <script src="../../../assets/js/popper.min.js"></script>
-    <script src="../../../assets/js/bootstrap.min.js"></script>
-    <script src="../../../scripts/description.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../scripts/description.js"></script>
 </body>
 </html>

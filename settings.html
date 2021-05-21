@@ -6,18 +6,18 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Enjoy life app</title>
-        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.svg" />
-        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap-extended.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/styles/style.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/styles/colors.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../assets/styles/google-fonts.css">
-        <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
-        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap-timepicker.min.css">
+        <link rel="icon" type="image/x-icon" href="./assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="./assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">
+        <link rel="stylesheet" type="text/css" href="./assets/styles/bootstrap-timepicker.min.css">
     </head>
 <body>
     <nav class="navbar navbar-custom primary-bg">
-        <a href="../index.html" class="back-button">
+        <a href="./index.html" class="back-button">
             <i class="icon-arrow-left font-large-1 float-right"></i>
         </a>
     </nav>
@@ -27,14 +27,6 @@
             <div class="col-xl-3 col-sm-3"></div>
             <div class="col-xl-6 col-sm-6 col-12 align-self-center">
                 <h3 class="mt-1">Settings</h3>
-                <div class="row mt-2 mb-2">
-                    <div class="col-6">
-                        Background sound
-                    </div>
-                    <div class="col-6">
-                        <input id="backgroundSoundCheckBox" class="checkbox" type="checkbox" aria-label="Check background sound">
-                    </div>
-                </div>
                 <div class="row mb-2">
                     <div class="col-6">
                         Morning practice time
@@ -87,14 +79,9 @@
         </div>
     </section>
     </div>
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-timepicker.min.js"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/bootstrap-timepicker.min.js"></script>
     <script type="text/javascript">
-        const backgroundSoundMode = window.localStorage.backgroundSoundMode;
-        if (backgroundSoundMode === 'true') {
-          $('#backgroundSoundCheckBox').prop('checked', true);
-        }
-
         const morningTime = window.localStorage.morningTime;
         if (morningTime) {
             $('#morningTimepicker').timepicker('setTime', morningTime);
@@ -116,9 +103,6 @@
         });
         $('#eveningTimepicker').change(function(){
             window.localStorage.eveningTime = $('#eveningTimepicker').val();
-        });
-        $('#backgroundSoundCheckBox').change(function(){
-            window.localStorage.backgroundSoundMode = $('#backgroundSoundCheckBox').prop('checked');
         });
     </script>
 </body>

@@ -6,21 +6,21 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Enjoy life app</title>
-        <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon.svg" />
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap-extended.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/style.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/colors.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/google-fonts.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/bs-stepper.min.css">
-        <link rel="stylesheet" type="text/css" href="../../../assets/styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="../assets/images/favicon.svg" />
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/style.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/google-fonts.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/bs-stepper.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
     </head>
 <body>
     <nav class="navbar navbar-custom primary-bg">
         <a href="./description.html" class="back-button">
             <i class="icon-arrow-left font-large-1 float-right"></i>
         </a>
-        <a href="../../settings.html" class="settings-button">
+        <a href="../settings.html" class="settings-button">
             <i class="icon-settings font-large-1 float-right"></i>
         </a>
     </nav>
@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
               <div class="col-md-12 mt-1">
-                <h4>Forgiveness practice</h4>
+                <h4>Humor practice</h4>
                 <div id="stepper" class="bs-stepper">
                   <div class="bs-stepper-header">
                     <div class="step" data-target="#test-lv-1">
@@ -44,22 +44,31 @@
                         <span class="bs-stepper-label">Second step</span>
                       </button>
                     </div>
+                    <div class="step" data-target="#test-lv-3">
+                      <button type="button" class="btn step-trigger">
+                        <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">Third step</span>
+                      </button>
+                    </div>
                   </div>
                   <div class="bs-stepper-content">
                     <div id="test-lv-1" class="content">
                       <span class="bs-stepper-circle">1</span>
                       <p class="practice-text-version-step-description">
-                        <span class="font-weight-bold">Close your eyes and remember the three things you are dressed for today.</span> 
-                        It can be anything: the kindness and generosity of a friend, plenty of food, the warmth of the sun or the beauty of the night sky. Try to remember as accurately as possible the things for which you are grateful.  
+                        <span class="font-weight-bold">Think about one of your flaws, human weaknesses or painful places.</span> Remember a certain trait of yours that actually seems funny when you look at it in perspective. By being able to laugh at yourself, you allow others to feel closer to you and encourage them to accept their own flaws, weaknesses and painful places.
                       </p>
                       <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
                     </div>
                     <div id="test-lv-2" class="content">
                       <span class="bs-stepper-circle">2</span>
                       <p class="practice-text-version-step-description">
-                        <span class="font-weight-bold">Write these three things in your diary.</span>
-                        This exercise can be performed mentally, but, as experiments show, over time, maintaining such lists will have a positive effect on your physical and emotional state. Each time you make a new record, try to point out three different things. Diversity is the key to keeping an effective diary of gratitude.  
+                        <span class="font-weight-bold">Laugh at yourself.</span> The next time you find yourself in a situation where you behave funny, say something funny or just be imperfect, laugh at yourself and joke about it. Humor is one of the best ways to end a conflict, especially when you can laugh at yourself and admit that you are reacting too emotionally or unreasonably.
                       </p>
+                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                    </div>
+                    <div id="test-lv-3" class="content">
+                      <span class="bs-stepper-circle">3</span>
+                      <p class="practice-text-version-step-description"><span class="font-weight-bold">Laugh at life.</span> The next time you have unforeseen circumstances, try to find something funny in this situation instead of getting angry or resentful. You will notice how a cheerful mood helps others to relax and often smooth the situation. Similarly, when you encounter paradoxical cases in everyday life, try to perceive them with humor.</p>
                       <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
                       <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       <button class="btn btn-outline-primary ads-button">Watch ad (optional)</button>
@@ -71,8 +80,8 @@
           </div>
         </div>
     </div>
-    <script src="../../../assets/js/jquery.js"></script>
-    <script src="../../../assets/js/bs-stepper.min.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bs-stepper.min.js"></script>
     <script>
         var stepper = new Stepper(document.querySelector('#stepper'), {
           animation: true
