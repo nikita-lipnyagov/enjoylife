@@ -1,12 +1,12 @@
+const backgroundAudioPanel = $('#backgroundAudioPanel')[0];
+const practiceAudioPanel = $('#practiceAudioPanel')[0];
+
 let isPlaying = false;
 let intervalId;
 
 $('#backgroundAudioPanel')[0].volume = 0.2;
 
 function playAudio() {
-  const backgroundAudioPanel = $('#backgroundAudioPanel')[0];
-  const practiceAudioPanel = $('#practiceAudioPanel')[0];
-
   if (!isPlaying) {
       backgroundAudioPanel.play();
       practiceAudioPanel.play();
@@ -28,7 +28,17 @@ function playAudio() {
     }
 }
 
-function hideAudioEndInfo() {
+function replayAudio() {
+  backgroundAudioPanel.currentTime -= 10;
+  practiceAudioPanel.currentTime -= 10;
+}
+
+function forwardAudio() {
+  backgroundAudioPanel.currentTime += 10;
+  practiceAudioPanel.currentTime += 10;
+}
+
+function processModalOpening() {
   $('#audio-end-info').css('display', 'none');
 
   $('#audioModalLabel').html(`Practice will end in <span id="minutesToPracticeEnd">${Math.ceil((practiceAudioPanel.duration - practiceAudioPanel.currentTime)/60)}</span> mins`);
