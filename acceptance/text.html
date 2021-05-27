@@ -188,11 +188,13 @@
                           <p>And if there is nothing you can do, what good will despair do you?</p>
                         </div>
                       </p>
-                      <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
-                      <a href="https://www.patreon.com/joypractices" target="_blank">
+                      <a href="./description.html" onclick="gtag('event', 'acceptance_text_finished');">
+                        <button class="btn btn-outline-primary finish-practice-button mb-1">Finish practice</button>
+                      </a>
+                      <a href="https://www.patreon.com/joypractices" target="_blank" onclick="gtag('event', 'acceptance_text_donate_clicked');">
                         <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       </a>
-                      <button class="btn btn-outline-primary ads-button">Watch ad (optional)</button>
+                      <button class="btn btn-outline-primary ads-button" onclick="gtag('event', 'acceptance_text_ads_clicked');">Watch ad (optional)</button>
                     </div>
                   </div>
                 </div>
