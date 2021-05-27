@@ -59,6 +59,10 @@
     color: var(--text-main-hover-color);
 }
 
+#settingsPracticeTimePanel {
+    display: none;
+}
+
 .checkbox {
     height: 1em;
     width: 1em;
