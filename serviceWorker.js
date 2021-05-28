@@ -26,16 +26,7 @@ const assets = [
   '/assets/images/humor.svg',
   '/assets/images/modesty.svg',
   '/assets/images/perspective.svg',
-  '/assets/images/coffee1.svg',
-  '/assets/audios/acceptance.mp3',
-  '/assets/audios/backgroundSound.mp3',
-  '/assets/audios/compassion.mp3',
-  '/assets/audios/daily_joy.mp3',
-  '/assets/audios/forgiveness.mp3',
-  '/assets/audios/gratitude.mp3',
-  '/assets/audios/humor.mp3',
-  '/assets/audios/modesty.mp3',
-  '/assets/audios/perspective.mp3'
+  '/assets/images/coffee1.svg'
 ]
 
 self.addEventListener('install', installEvent => {
