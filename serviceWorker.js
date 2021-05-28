@@ -44,7 +44,6 @@ const assets = [
   "/assets/images/humor.svg",
   "/assets/images/modesty.svg",
   "/assets/images/perspective.svg",
-  "/assets/images/coffee1.svg",
 ];
 
 self.addEventListener("install", function (event) {
@@ -81,7 +80,20 @@ self.addEventListener("install", function (event) {
         "/assets/images/humor.svg",
         "/assets/images/modesty.svg",
         "/assets/images/perspective.svg",
-        "/assets/images/coffee1.svg",
+        "/assets/styles/bootstrap-extended.min.css",
+        "/assets/styles/bootstrap-timepicker.min.css",
+        "/assets/styles/bootstrap.min.css",
+        "/assets/styles/bs-stepper.min.css",
+        "/assets/styles/colors.min.css",
+        "/assets/styles/google-fonts.css",
+        "/assets/styles/style.min.css",
+        "/assets/styles/styles.css",
+        "/assets/js/bootstrap-timepicker.min.js",
+        "/assets/js/bootstrap.min.js",
+        "/assets/js/bs-stepper.min.js",
+        "/assets/js/jquery.js",
+        "/assets/js/popper.min.js",
+        "/scripts/description.js",
       ]);
     })
   );
