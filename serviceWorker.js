@@ -47,7 +47,7 @@ const assets = [
   "/assets/images/coffee1.svg",
 ];
 
-self.addEventListener('install', function (event) {
+self.addEventListener("install", function (event) {
   event.waitUntil(
     caches.open(joyPracticesApp).then(function (cache) {
       return cache.addAll([
@@ -71,6 +71,17 @@ self.addEventListener('install', function (event) {
         "/daily_joy/description.html",
         "/daily_joy/text.html",
         "/settings.html",
+        "/assets/images/acceptance.svg",
+        "/assets/images/compassion.svg",
+        "/assets/images/daily_joy.svg",
+        "/assets/images/favicon.svg",
+        "/assets/images/forgiveness.svg",
+        "/assets/images/generosity.svg",
+        "/assets/images/gratitude.svg",
+        "/assets/images/humor.svg",
+        "/assets/images/modesty.svg",
+        "/assets/images/perspective.svg",
+        "/assets/images/coffee1.svg",
       ]);
     })
   );
@@ -84,7 +95,7 @@ self.addEventListener('install', function (event) {
 //   )
 // });
 
-self.addEventListener('fetch', (fetchEvent) => {
+self.addEventListener("fetch", (fetchEvent) => {
   fetchEvent.respondWith(
     caches.match(fetchEvent.request).then((res) => {
       return res || fetch(fetchEvent.request);
