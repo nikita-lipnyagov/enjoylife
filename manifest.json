@@ -1,0 +1,15 @@
+{
+  "name": "Joy Practices App",
+  "short_name": "JoyPractices",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#3d95be",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.svg",
+      "type": "image/svg"
+    }
+  ]
+}
