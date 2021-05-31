@@ -111,7 +111,9 @@
 
         console.log(navigator.serviceWorker);
         if (navigator.serviceWorker) {
-            navigator.serviceWorker.postMessage('Hi service worker');
+            navigator.serviceWorker.ready.then(registration => {
+                registration.active.postMessage('Hi service worker');
+            });
         }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
