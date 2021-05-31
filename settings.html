@@ -109,10 +109,9 @@
             window.localStorage.eveningTime = $('#eveningTimepicker').val();
         });
 
+        console.log(navigator.serviceWorker);
         if (navigator.serviceWorker) {
-            navigator.serviceWorker.ready.then( registration => {
-                registration.active.postMessage('Hi service worker');
-            });
+            navigator.serviceWorker.postMessage('Hi service worker');
         }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
