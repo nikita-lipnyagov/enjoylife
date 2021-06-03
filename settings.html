@@ -87,11 +87,11 @@
     <script src="./assets/js/bootstrap-timepicker.min.js"></script>
     <script type="text/javascript">
         const morningTime = window.localStorage.morningTime;
+        const eveningTime = window.localStorage.eveningTime;
+
         if (morningTime) {
             $('#morningTimepicker').timepicker('setTime', morningTime);
         }
-
-        const eveningTime = window.localStorage.eveningTime;
         if (eveningTime) {
             $('#eveningTimepicker').timepicker('setTime', eveningTime);
         }
@@ -102,37 +102,42 @@
         $('#eveningTimepicker').timepicker({
           showInputs: false
         });
-        $('#morningTimepicker').change(function(){
-            window.localStorage.morningTime = $('#morningTimepicker').val();
-        });
-        $('#eveningTimepicker').change(function(){
-            window.localStorage.eveningTime = $('#eveningTimepicker').val();
-        });
 
         $('#morningTimepicker').focusout(function() {
             // TODO: notifications with default time
-            createPracticeNotifications('morning practice');
+            window.localStorage.morningTime = $('#morningTimepicker').val();
+            createPracticeNotifications();
         });
         $('#eveningTimepicker').focusout(function() {
             // TODO: notifications with default time
-            createPracticeNotifications('evening practice');
+            window.localStorage.eveningTime = $('#eveningTimepicker').val();
+            createPracticeNotifications();
         });
 
-        function createPracticeNotifications(practiceName) {
+        function createPracticeNotifications() {
             if ('Notification' in window && navigator.serviceWorker) {
                 if (Notification.permission === "granted") {
-                    navigator.serviceWorker.getRegistration().then(function(reg) {
-                    const options = {
-                        body: `Practicing daily is one of the main keys to joy. It's time for ${practiceName}!`,
-                        icon: './assets/images/favicon.svg',
-                        data: {
-                            dateOfArrival: Date.now(),
-                            primaryKey: 1
-                        }
-                    };
-                    reg.showNotification(`It's time to devote a couple of minutes to yourself!`, options);
-                    });
-                } else if (Notification.permission === "blocked") {
+                    // TODO: remove previous values
+                    if (navigator.serviceWorker) {
+                        navigator.serviceWorker.ready.then( registration => {
+                            registration.active.postMessage('Clear notifications');
+                        });
+
+                        navigator.serviceWorker.addEventListener('message', event => {
+                            const parsedMorningTime = parsePickerTime($('#morningTimepicker').val()); // Date.now()
+                            setupNotification(parsedMorningTime + 1 * 86400000);
+                            setupNotification(parsedMorningTime + 2 * 86400000);
+                            setupNotification(parsedMorningTime + 3 * 86400000);
+
+                            const parsedEveningTime = parsePickerTime($('#eveningTimepicker').val()); // Date.now()
+                            setupNotification(parsedEveningTime + 1 * 86400000);
+                            setupNotification(parsedEveningTime + 2 * 86400000);
+                            setupNotification(parsedEveningTime + 3 * 86400000);
+                            
+                            window.localStorage.lastNotificationDate = new Date(parsedEveningTime + 3 * 86400000).toUTCString();
+                        });
+                    }
+                } else if (Notification.permission === 'blocked') {
                     console.warn('You blocked notification permission, not possible to send notifications');
                 } else {
                     Notification.requestPermission(function(status) {
@@ -140,6 +145,30 @@
                     });
                 }
             }
+        }
+
+        function setupNotification(notificationDateTime) {
+            navigator.serviceWorker.getRegistration().then(function(reg) {
+                const options = {
+                    body: 'Practicing daily is one of the main keys to joy. It\'s time for practice!',
+                    icon: './assets/images/favicon.svg',
+                    data: {
+                        dateOfArrival: notificationDateTime
+                    }
+                };
+                reg.showNotification(`It's time to devote a couple of minutes to yourself!`, options);
+            });
+        }
+
+        // '2:30 AM', '9:00 PM' - pickerTime sample values 
+        function parsePickerTime(time) {
+            const timeValue = time.split(/\s/);
+            const hoursAndMinutes = timeValue[0];
+            const dayPart = timeValue[1];
+            const hours = dayPart === 'AM' ? Number(hoursAndMinutes.split(':')[0]) : Number(hoursAndMinutes.split(':')[0]) + 12;
+            const minutes = Number(hoursAndMinutes[1]);
+            
+            return Date.now().setHours(hours,minutes,0,0);
         }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
