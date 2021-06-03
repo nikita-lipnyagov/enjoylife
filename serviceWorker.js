@@ -70,4 +70,6 @@ self.addEventListener('message', event => {
         notification.close();
       });
     });
+
+    event.source.postMessage('Notifications are closed');
 });
