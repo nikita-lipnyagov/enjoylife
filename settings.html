@@ -168,7 +168,7 @@
             const hours = dayPart === 'AM' ? Number(hoursAndMinutes.split(':')[0]) : Number(hoursAndMinutes.split(':')[0]) + 12;
             const minutes = Number(hoursAndMinutes[1]);
             
-            return Date.now().setHours(hours,minutes,0,0);
+            return new Date().setHours(hours,minutes,0,0);
         }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
