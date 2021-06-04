@@ -53,13 +53,14 @@ self.addEventListener("install", function (event) {
   );
 });
 
-// self.addEventListener("fetch", (fetchEvent) => {
-//   fetchEvent.respondWith(
-//     caches.match(fetchEvent.request).then((res) => {
-//       return res || fetch(fetchEvent.request);
-//     })
-//   );
-// });
+self.addEventListener("fetch", (fetchEvent) => {
+  // fetchEvent.respondWith(
+  //   caches.match(fetchEvent.request).then((res) => {
+  //     return res || fetch(fetchEvent.request);
+  //   })
+  // );
+  fetch(fetchEvent.request);
+});
 
 // create push notification
 self.addEventListener('message', event => {

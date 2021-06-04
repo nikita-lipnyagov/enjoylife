@@ -89,17 +89,14 @@
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap-timepicker.min.js"></script>
     <script type="text/javascript">
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-        //     && navigator.serviceWorker
-        //  && 'Notification' in window && 'showTrigger' in Notification.prototype
-            $('#settingsPracticeTimePanel').show(); 
+        if (window.matchMedia('(display-mode: standalone)').matches && navigator.serviceWorker
+         && 'Notification' in window && 'showTrigger' in Notification.prototype) {
+            $('#settingsPracticeTimePanel').show();
+            createPracticeNotifications(); 
         }
-        $('#settingsPracticeTimePanel').show(); 
 
         const morningTime = window.localStorage.morningTime;
         const eveningTime = window.localStorage.eveningTime;
-
-        createPracticeNotifications();
 
         if (morningTime) {
             $('#morningTimepicker').timepicker('setTime', morningTime);
