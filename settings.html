@@ -14,6 +14,9 @@
         <link rel="stylesheet" type="text/css" href="./assets/styles/google-fonts.css">
         <link rel="stylesheet" type="text/css" href="./assets/styles/styles.css">
         <link rel="stylesheet" type="text/css" href="./assets/styles/bootstrap-timepicker.min.css">
+        <meta name="apple-mobile-web-app-status-bar" content="#3d95be" />
+        <meta name="theme-color" content="#3d95be" />
+        <meta name="google" content="notranslate" />
     </head>
 <body>
     <nav class="navbar navbar-custom primary-bg">
@@ -86,8 +89,15 @@
     <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/bootstrap-timepicker.min.js"></script>
     <script type="text/javascript">
+        if (window.matchMedia('(display-mode: standalone)').matches && navigator.serviceWorker
+         && 'Notification' in window && 'showTrigger' in Notification.prototype) {  
+            $('#settingsPracticeTimePanel').show(); 
+        }
+
         const morningTime = window.localStorage.morningTime;
         const eveningTime = window.localStorage.eveningTime;
+
+        createPracticeNotifications();
 
         if (morningTime) {
             $('#morningTimepicker').timepicker('setTime', morningTime);
@@ -104,12 +114,10 @@
         });
 
         $('#morningTimepicker').change(function() {
-            // TODO: notifications with default time
             window.localStorage.morningTime = $('#morningTimepicker').val();
             createPracticeNotifications();
         });
         $('#eveningTimepicker').change(function() {
-            // TODO: notifications with default time
             window.localStorage.eveningTime = $('#eveningTimepicker').val();
             createPracticeNotifications();
         });
@@ -122,18 +130,23 @@
                     });
 
                     navigator.serviceWorker.addEventListener('message', event => {
-                        const parsedMorningTime = parsePickerTime($('#morningTimepicker').val()); // Date.now()
-                        setupNotification(parsedMorningTime);
+                        const parsedMorningTime = parsePickerTime($('#morningTimepicker').val());
+                        if (parsedMorningTime < Date.now()) {
+                            setupNotification(parsedMorningTime);
+                        }
                         setupNotification(parsedMorningTime + 1 * 86400000);
                         setupNotification(parsedMorningTime + 2 * 86400000);
                         setupNotification(parsedMorningTime + 3 * 86400000);
 
-                        const parsedEveningTime = parsePickerTime($('#eveningTimepicker').val()); // Date.now()
-                        setupNotification(parsedEveningTime);
+                        const parsedEveningTime = parsePickerTime($('#eveningTimepicker').val());
+                        if (parsedEveningTime < Date.now()) {
+                            setupNotification(parsedEveningTime);
+                        }
                         setupNotification(parsedEveningTime + 1 * 86400000);
                         setupNotification(parsedEveningTime + 2 * 86400000);
                         setupNotification(parsedEveningTime + 3 * 86400000);
-                            
+                          
+                        // TODO: recreate notifications
                         window.localStorage.lastNotificationDate = new Date(parsedEveningTime + 3 * 86400000).toUTCString();
                     });
                 } else if (Notification.permission === 'blocked') {
