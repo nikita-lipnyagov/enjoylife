@@ -115,7 +115,7 @@
         });
 
         function createPracticeNotifications() {
-            if ('Notification' in window && navigator.serviceWorker) {
+            if ('Notification' in window && navigator.serviceWorker && 'showTrigger' in Notification.prototype) {
                 if (Notification.permission === "granted") {
                     // TODO: remove previous values
                     if (navigator.serviceWorker) {
@@ -152,9 +152,7 @@
                 const options = {
                     body: 'Practicing daily is one of the main keys to joy. It\'s time for practice!',
                     icon: './assets/images/favicon.svg',
-                    data: {
-                        dateOfArrival: notificationDateTime
-                    }
+                    showTrigger: new TimestampTrigger(Date.now() + 30 * 1000),
                 };
                 reg.showNotification(`It's time to devote a couple of minutes to yourself!`, options);
             });

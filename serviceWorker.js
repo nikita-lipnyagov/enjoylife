@@ -65,7 +65,7 @@ self.addEventListener("fetch", (fetchEvent) => {
 self.addEventListener('message', event => {
     // event is an ExtendableMessageEvent object
     // console.log(`The client sent me a message: ${event.data}`);
-    self.registration.getNotifications().then(function(notifications) {
+    self.registration.getNotifications({ includeTriggered: true }).then(function(notifications) {
       notifications.forEach(function(notification) {
         notification.close();
       });

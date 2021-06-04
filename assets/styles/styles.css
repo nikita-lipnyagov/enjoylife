@@ -59,9 +59,9 @@
     color: var(--text-main-hover-color);
 }
 
-#settingsPracticeTimePanel {
+/* #settingsPracticeTimePanel {
     display: none;
-}
+} */
 
 .checkbox {
     height: 1em;
