@@ -103,40 +103,39 @@
           showInputs: false
         });
 
-        $('#morningTimepicker').focusout(function() {
+        $('#morningTimepicker').change(function() {
             // TODO: notifications with default time
             window.localStorage.morningTime = $('#morningTimepicker').val();
             createPracticeNotifications();
         });
-        $('#eveningTimepicker').focusout(function() {
+        $('#eveningTimepicker').change(function() {
             // TODO: notifications with default time
             window.localStorage.eveningTime = $('#eveningTimepicker').val();
             createPracticeNotifications();
         });
 
         function createPracticeNotifications() {
-            if ('Notification' in window && navigator.serviceWorker && 'showTrigger' in Notification.prototype) {
+            if (navigator.serviceWorker && 'Notification' in window && 'showTrigger' in Notification.prototype) {
                 if (Notification.permission === "granted") {
-                    // TODO: remove previous values
-                    if (navigator.serviceWorker) {
-                        navigator.serviceWorker.ready.then( registration => {
-                            registration.active.postMessage('Clear notifications');
-                        });
+                    navigator.serviceWorker.ready.then( registration => {
+                        registration.active.postMessage('Clear notifications');
+                    });
 
-                        navigator.serviceWorker.addEventListener('message', event => {
-                            const parsedMorningTime = parsePickerTime($('#morningTimepicker').val()); // Date.now()
-                            setupNotification(parsedMorningTime + 1 * 86400000);
-                            setupNotification(parsedMorningTime + 2 * 86400000);
-                            setupNotification(parsedMorningTime + 3 * 86400000);
+                    navigator.serviceWorker.addEventListener('message', event => {
+                        const parsedMorningTime = parsePickerTime($('#morningTimepicker').val()); // Date.now()
+                        setupNotification(parsedMorningTime);
+                        setupNotification(parsedMorningTime + 1 * 86400000);
+                        setupNotification(parsedMorningTime + 2 * 86400000);
+                        setupNotification(parsedMorningTime + 3 * 86400000);
 
-                            const parsedEveningTime = parsePickerTime($('#eveningTimepicker').val()); // Date.now()
-                            setupNotification(parsedEveningTime + 1 * 86400000);
-                            setupNotification(parsedEveningTime + 2 * 86400000);
-                            setupNotification(parsedEveningTime + 3 * 86400000);
+                        const parsedEveningTime = parsePickerTime($('#eveningTimepicker').val()); // Date.now()
+                        setupNotification(parsedEveningTime);
+                        setupNotification(parsedEveningTime + 1 * 86400000);
+                        setupNotification(parsedEveningTime + 2 * 86400000);
+                        setupNotification(parsedEveningTime + 3 * 86400000);
                             
-                            window.localStorage.lastNotificationDate = new Date(parsedEveningTime + 3 * 86400000).toUTCString();
-                        });
-                    }
+                        window.localStorage.lastNotificationDate = new Date(parsedEveningTime + 3 * 86400000).toUTCString();
+                    });
                 } else if (Notification.permission === 'blocked') {
                     console.warn('You blocked notification permission, not possible to send notifications');
                 } else {
@@ -152,7 +151,7 @@
                 const options = {
                     body: 'Practicing daily is one of the main keys to joy. It\'s time for practice!',
                     icon: './assets/images/favicon.svg',
-                    showTrigger: new TimestampTrigger(Date.now() + 30 * 1000),
+                    showTrigger: new TimestampTrigger(notificationDateTime),
                 };
                 reg.showNotification(`It's time to devote a couple of minutes to yourself!`, options);
             });
