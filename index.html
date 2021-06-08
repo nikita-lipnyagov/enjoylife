@@ -22,7 +22,7 @@
     </head>
 <body>
     <nav class="navbar navbar-custom primary-bg">
-        <span class="text-uppercase">Joy practices app</span>
+        <span class="text-uppercase">Joy practices</span>
         <a href="./settings.html">
             <i class="icon-settings font-large-1 float-right settings-button"></i>
         </a>
@@ -31,7 +31,7 @@
     <section id="minimal-statistics">
         <div class="row">
         <div class="col-12 mt-2 mb-1">
-            <h4 class="text-uppercase text-center">Choose practice</h4>
+            <h4 class="text-uppercase text-center">Choose the trait you want to train</h4>
         </div>
         </div>
         <div class="row">
@@ -198,7 +198,51 @@
         </div>
     </section>
     </div>
+    <div class="modal fade p-0" id="addToHomeScreenModal" tabindex="-1" role="dialog" aria-labelledby="addToHomeScreenModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="addToHomeScreenModalLabel"><b>Regular practices are the key to joy</b></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body pt-0">
+                <div class="row justify-content-center align-items-center">
+                    <div class="align-items-center">
+                        <div class="card-body pt-0 text-center">
+                            <p class="text-justify mt-1">Add the app to your <b>home screen</b> for faster, more regular access to your practices.</p>
+                            <ol class="text-justify">
+                                <li>Open browser settings when you are on the main screen of our app. (usually they are shown as 3 dots)</li>
+                                <li>In the menu that appears, сlick on "Add to Home screen" button. (In Firefox browser it can be called "Install")</li>
+                                <li>Click "Add" if modal window with suggested app name appears.</li>
+                            </ol>
+                            <button id="hideAddToHomeScreenModalButton" onClick="hideAddToHomeScreenModal()" class="btn btn-outline-primary">
+                                I have already added the app.
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
     <script>
+        if (!window.localStorage.stopShowingAddToHomeScreenModal) {
+            if (!window.localStorage.lastAddToHomeScreenModalShowDate || (window.localStorage.lastAddToHomeScreenModalShowDate && Date.now() - Number(window.localStorage.lastAddToHomeScreenModalShowDate) > 3*86400000)) {
+                $('#addToHomeScreenModal').modal('show');
+                window.localStorage.lastAddToHomeScreenModalShowDate = Date.now();
+            }
+        }
+
+        function hideAddToHomeScreenModal() {
+            window.localStorage.stopShowingAddToHomeScreenModal = true;
+            $('#addToHomeScreenModal').modal('hide');
+        }
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker

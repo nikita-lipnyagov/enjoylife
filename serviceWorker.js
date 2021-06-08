@@ -62,14 +62,14 @@ self.addEventListener("fetch", (fetchEvent) => {
 });
 
 // create push notification
-self.addEventListener('message', event => {
-    // event is an ExtendableMessageEvent object
-    // console.log(`The client sent me a message: ${event.data}`);
-    self.registration.getNotifications({ includeTriggered: true }).then(function(notifications) {
-      notifications.forEach(function(notification) {
-        notification.close();
-      });
-    });
+// self.addEventListener('message', event => {
+//     // event is an ExtendableMessageEvent object
+//     // console.log(`The client sent me a message: ${event.data}`);
+//     self.registration.getNotifications({ includeTriggered: true }).then(function(notifications) {
+//       notifications.forEach(function(notification) {
+//         notification.close();
+//       });
+//     });
 
-    event.source.postMessage('Notifications are closed');
-});
+//     event.source.postMessage('Notifications are closed');
+// });

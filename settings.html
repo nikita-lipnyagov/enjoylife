@@ -29,31 +29,6 @@
         <div class="row">
             <div class="col-xl-3 col-sm-3"></div>
             <div class="col-xl-6 col-sm-6 col-12 align-self-center">
-                <h3 class="mt-1">Settings</h3>
-                <div id="settingsPracticeTimePanel">
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            Morning practice time
-                        </div>
-                        <div class="col-6">
-                            <div class="input-group bootstrap-timepicker timepicker">
-                                <input id="morningTimepicker" type="text" class="form-control input-small">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-6">
-                            Evening practice time
-                        </div>
-                        <div class="col-6">
-                            <div class="input-group bootstrap-timepicker timepicker">
-                                <input id="eveningTimepicker" type="text" class="form-control input-small">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <h3 class="mt-1 mb-1">Project contacts</h3>
                 <div class="row mb-2">
                     <div class="col-6">
@@ -87,100 +62,6 @@
     </section>
     </div>
     <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/bootstrap-timepicker.min.js"></script>
-    <script type="text/javascript">
-        alert(window.matchMedia('(display-mode: standalone)').matches);
-        if (window.matchMedia('(display-mode: standalone)').matches && navigator.serviceWorker
-         && 'Notification' in window && 'showTrigger' in Notification.prototype) {
-            $('#settingsPracticeTimePanel').show();
-            createPracticeNotifications(); 
-        }
-
-        const morningTime = window.localStorage.morningTime;
-        const eveningTime = window.localStorage.eveningTime;
-
-        if (morningTime) {
-            $('#morningTimepicker').timepicker('setTime', morningTime);
-        }
-        if (eveningTime) {
-            $('#eveningTimepicker').timepicker('setTime', eveningTime);
-        }
-
-        $('#morningTimepicker').timepicker({
-          showInputs: false
-        });
-        $('#eveningTimepicker').timepicker({
-          showInputs: false
-        });
-
-        $('#morningTimepicker').change(function() {
-            window.localStorage.morningTime = $('#morningTimepicker').val();
-            createPracticeNotifications();
-        });
-        $('#eveningTimepicker').change(function() {
-            window.localStorage.eveningTime = $('#eveningTimepicker').val();
-            createPracticeNotifications();
-        });
-
-        function createPracticeNotifications() {
-            if (navigator.serviceWorker && 'Notification' in window && 'showTrigger' in Notification.prototype) {
-                if (Notification.permission === "granted") {
-                    navigator.serviceWorker.ready.then( registration => {
-                        registration.active.postMessage('Clear notifications');
-                    });
-
-                    navigator.serviceWorker.addEventListener('message', event => {
-                        const parsedMorningTime = parsePickerTime($('#morningTimepicker').val());
-                        if (parsedMorningTime < Date.now()) {
-                            setupNotification(parsedMorningTime);
-                        }
-                        setupNotification(parsedMorningTime + 1 * 86400000);
-                        setupNotification(parsedMorningTime + 2 * 86400000);
-                        setupNotification(parsedMorningTime + 3 * 86400000);
-
-                        const parsedEveningTime = parsePickerTime($('#eveningTimepicker').val());
-                        if (parsedEveningTime < Date.now()) {
-                            setupNotification(parsedEveningTime);
-                        }
-                        setupNotification(parsedEveningTime + 1 * 86400000);
-                        setupNotification(parsedEveningTime + 2 * 86400000);
-                        setupNotification(parsedEveningTime + 3 * 86400000);
-                          
-                        // TODO: recreate notifications
-                        window.localStorage.lastNotificationDate = new Date(parsedEveningTime + 3 * 86400000).toUTCString();
-                    });
-                } else if (Notification.permission === 'blocked') {
-                    console.warn('You blocked notification permission, not possible to send notifications');
-                } else {
-                    Notification.requestPermission(function(status) {
-                        console.log('Notification permission status:', status);
-                    });
-                }
-            }
-        }
-
-        function setupNotification(notificationDateTime) {
-            navigator.serviceWorker.getRegistration().then(function(reg) {
-                const options = {
-                    body: 'Practicing daily is one of the main keys to joy. It\'s time for practice!',
-                    icon: './assets/images/favicon.svg',
-                    showTrigger: new TimestampTrigger(notificationDateTime),
-                };
-                reg.showNotification(`It's time to devote a couple of minutes to yourself!`, options);
-            });
-        }
-
-        // '2:30 AM', '9:00 PM' - pickerTime sample values 
-        function parsePickerTime(time) {
-            const timeValue = time.split(/\s/);
-            const hoursAndMinutes = timeValue[0];
-            const dayPart = timeValue[1];
-            const hours = dayPart === 'AM' ? Number(hoursAndMinutes.split(':')[0]) : Number(hoursAndMinutes.split(':')[0]) + 12;
-            const minutes = Number(hoursAndMinutes.split(':')[1]);
-            
-            return new Date().setHours(hours,minutes,0,0);
-        }
-    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DE1TZN5W"></script>
     <script>
