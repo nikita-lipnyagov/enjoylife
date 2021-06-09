@@ -115,3 +115,7 @@ svg {
 svg:hover {
     fill: var(--text-main-color);
 }
+
+.dots-image {
+    transform: rotate(90deg);
+}
