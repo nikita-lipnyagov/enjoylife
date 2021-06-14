@@ -5,6 +5,10 @@
     --text-muted-color: #6c757d;
 }
 
+body {
+    margin-bottom:50px;
+}
+
 .primary-bg {
     background-color: var(--main-bg-color);
 }
@@ -118,4 +122,13 @@ svg:hover {
 
 .dots-image {
     transform: rotate(90deg);
+}
+
+.ads-container {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 }
