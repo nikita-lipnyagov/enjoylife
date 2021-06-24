@@ -70,7 +70,7 @@
                       <p class="practice-text-version-step-description">
                         <span class="font-weight-bold">Laugh at yourself.</span> The next time you find yourself in a situation where you behave funny, say something funny or just be imperfect, laugh at yourself and joke about it. Humor is one of the best ways to end a conflict, especially when you can laugh at yourself and admit that you are reacting too emotionally or unreasonably.
                       </p>
-                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                      <button class="btn btn-outline-primary" onclick="lastNextStep()">Next</button>
                     </div>
                     <div id="test-lv-3" class="content">
                       <span class="bs-stepper-circle">3</span>
@@ -81,7 +81,6 @@
                       <a href="https://www.patreon.com/joypractices" target="_blank" onclick="gtag('event', 'humor_text_donate_clicked');">
                         <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       </a>
-                      <button class="btn btn-outline-primary ads-button" onclick="gtag('event', 'humor_text_ads_clicked');">Watch ad (optional)</button>
                     </div>
                   </div>
                 </div>
@@ -89,6 +88,7 @@
             </div>
           </div>
         </div>
+        <div class="ads-container hide">Ads container</div>
     </div>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bs-stepper.min.js"></script>
@@ -96,6 +96,11 @@
         var stepper = new Stepper(document.querySelector('#stepper'), {
           animation: true
         });
+
+        function lastNextStep() {
+          stepper.next();
+          $('.ads-container').removeClass('hide');
+        }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DE1TZN5W"></script>

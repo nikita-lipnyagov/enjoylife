@@ -85,7 +85,7 @@
                         <span class="font-weight-bold">Forgive the person who offended you.</span>
                         The ability to forgive is based on an awareness of our common humanity and on the recognition that we will inevitably feel pain and inflict it on others because we are human. Can you accept the humanity of your abuser and the fact that the most likely cause of such actions was his own suffering? By accepting your common humanity, you can give up your imaginary right to revenge and move on to healing rather than retribution. We also understand that there can be many insults, especially in relationships between loved ones, so we need to forgive and apologize at the same time, accepting our role in human drama. 
                       </p>
-                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                      <button class="btn btn-outline-primary" onclick="lastNextStep()">Next</button>
                     </div>
                     <div id="test-lv-4" class="content">
                       <span class="bs-stepper-circle">4</span>
@@ -99,7 +99,6 @@
                       <a href="https://www.patreon.com/joypractices" target="_blank" onclick="gtag('event', 'forgiveness_text_donate_clicked');">
                         <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       </a>
-                      <button class="btn btn-outline-primary ads-button" onclick="gtag('event', 'forgiveness_text_ads_clicked');">Watch ad (optional)</button>
                     </div>
                   </div>
                 </div>
@@ -107,6 +106,7 @@
             </div>
           </div>
         </div>
+        <div class="ads-container hide">Ads container</div>
     </div>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bs-stepper.min.js"></script>
@@ -114,6 +114,11 @@
         var stepper = new Stepper(document.querySelector('#stepper'), {
           animation: true
         });
+
+        function lastNextStep() {
+          stepper.next();
+          $('.ads-container').removeClass('hide');
+        }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DE1TZN5W"></script>

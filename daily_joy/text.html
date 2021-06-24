@@ -98,7 +98,7 @@
                         <span class="font-weight-bold">Rejoice in the day.</span>
                         Choose one of today's actions that evokes pleasant emotions in you: for example, you remained restrained during the conflict or helped someone. If nothing comes to mind, you can be happy that you follow this practice.
                       </p>
-                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                      <button class="btn btn-outline-primary" onclick="lastNextStep()">Next</button>
                     </div>
                     <div id="test-lv-5" class="content">
                       <span class="bs-stepper-circle">5</span>
@@ -112,7 +112,6 @@
                       <a href="https://www.patreon.com/joypractices" target="_blank" onclick="gtag('event', 'dailyjoy_text_donate_clicked');">
                         <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       </a>
-                      <button class="btn btn-outline-primary ads-button" onclick="gtag('event', 'dailyjoy_text_ads_clicked');">Watch ad (optional)</button>
                     </div>
                   </div>
                 </div>
@@ -120,6 +119,7 @@
             </div>
           </div>
         </div>
+        <div class="ads-container hide">Ads container</div>
     </div>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bs-stepper.min.js"></script>
@@ -127,6 +127,11 @@
         var stepper = new Stepper(document.querySelector('#stepper'), {
           animation: true
         });
+
+        function lastNextStep() {
+          stepper.next();
+          $('.ads-container').removeClass('hide');
+        }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DE1TZN5W"></script>

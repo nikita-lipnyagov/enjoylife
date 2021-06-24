@@ -56,7 +56,7 @@
                       <p class="practice-text-version-step-description">
                         <span class="font-weight-bold">Think of the people you owe your life to.</span> Think of your parents who gave you life, the teachers who taught you, the people who grow food and sew clothes for you, and all those without whom you would not be able to live the way you live every day. Think of all the ancestors who had to live, survive so that you could be born, and overcome the enormous difficulties so that you could live that life now. Now think about your family and friends who fill your life with meaning and purpose.
                       </p>
-                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                      <button class="btn btn-outline-primary" onclick="lastNextStep()">Next</button>
                     </div>
                     <div id="test-lv-2" class="content">
                       <span class="bs-stepper-circle">2</span>
@@ -67,7 +67,6 @@
                       <a href="https://www.patreon.com/joypractices" target="_blank" onclick="gtag('event', 'modesty_text_donate_clicked');">
                         <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       </a>
-                      <button class="btn btn-outline-primary ads-button" onclick="gtag('event', 'modesty_text_ads_clicked');">Watch ad (optional)</button>
                     </div>
                   </div>
                 </div>
@@ -75,6 +74,7 @@
             </div>
           </div>
         </div>
+        <div class="ads-container hide">Ads container</div>
     </div>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bs-stepper.min.js"></script>
@@ -82,6 +82,11 @@
         var stepper = new Stepper(document.querySelector('#stepper'), {
           animation: true
         });
+
+        function lastNextStep() {
+          stepper.next();
+          $('.ads-container').removeClass('hide');
+        }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DE1TZN5W"></script>

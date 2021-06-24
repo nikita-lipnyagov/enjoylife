@@ -57,7 +57,7 @@
                         <span class="font-weight-bold">Close your eyes and remember the three things you are dressed for today.</span> 
                         It can be anything: the kindness and generosity of a friend, plenty of food, the warmth of the sun or the beauty of the night sky. Try to remember as accurately as possible the things for which you are grateful.  
                       </p>
-                      <button class="btn btn-outline-primary" onclick="stepper.next()">Next</button>
+                      <button class="btn btn-outline-primary" onclick="lastNextStep()">Next</button>
                     </div>
                     <div id="test-lv-2" class="content">
                       <span class="bs-stepper-circle">2</span>
@@ -71,7 +71,6 @@
                       <a href="https://www.patreon.com/joypractices" target="_blank" onclick="gtag('event', 'gratitude_text_donate_clicked');">
                         <button class="btn btn-outline-primary donate-button mb-1">Donate (optional)</button>
                       </a>
-                      <button class="btn btn-outline-primary ads-button" onclick="gtag('event', 'gratitude_text_ads_clicked');">Watch ad (optional)</button>
                     </div>
                   </div>
                 </div>
@@ -79,6 +78,7 @@
             </div>
           </div>
         </div>
+        <div class="ads-container hide">Ads container</div>
     </div>
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bs-stepper.min.js"></script>
@@ -86,6 +86,11 @@
         var stepper = new Stepper(document.querySelector('#stepper'), {
           animation: true
         });
+
+        function lastNextStep() {
+          stepper.next();
+          $('.ads-container').removeClass('hide');
+        }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8DE1TZN5W"></script>
